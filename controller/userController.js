@@ -8,6 +8,7 @@ let addUserController = (req, res) =>{
     .then(result => {
         console.log(`User: ${userName}, ${userAge} add to bd`);
         res.send('User add to db')})
+        .catch(err => console.log(err))
 }
 
 let addUserControllerForBody = async (req, res) =>{
@@ -22,6 +23,7 @@ let addUserControllerForBody = async (req, res) =>{
 let getUsersController = (req, res) => {
     getUsers()
     .then(result => res.send(result))
+    .catch(err => console.log(err))
 }
 
 

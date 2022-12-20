@@ -36,6 +36,7 @@ app.get('/getinfo', (req, res) => {
     fetch('https://jsonplaceholder.typicode.com/todos/1')
         .then(result => result.json())
         .then(json_result => res.send(json_result))
+        .catch(err => console.log(err))
 });
 
 app.get('/download/picture/:id&:userId', (req, res) => {
@@ -46,7 +47,7 @@ app.get('/download/picture/:id&:userId', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'images', 'picture.html'))
         console.log(result.Location)
         addPicture(id, result.Location).then(result => addUserPicture(userId,result.dataValues.Id))
-    })
+    }).catch(err => console.log(err))
 });
 
 

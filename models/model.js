@@ -1,4 +1,4 @@
-const { Sequelize, Model, DataTypes } = require('sequelize');
+const { Sequelize } = require('sequelize');
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER_NAME, process.env.DB_USER_PASSWORD, {
     dialect: "postgres"
 });
@@ -79,7 +79,7 @@ let addUser = async (name, age) => {
     return result //.toJSON()
 }
 
-let addPicture = (documentName, link) =>{
+let addPicture = (documentName, link) => {
     return Document.create({
         Name: documentName,
         Link: link
